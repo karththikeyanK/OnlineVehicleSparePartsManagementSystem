@@ -35,7 +35,7 @@
 <div class="container">
     <h1 class="heading">Online Vehicle Spare Parts Management System</h1>
     <a href="addProduct.jsp"><button class="button">Add Product</button></a>
-    <a href="viewProduct.jsp"><button class="button">View Product</button></a>
+    <a href="ViewProductServlet"><button class="button">View Product</button></a>
 </div>
 </body>
 </html>

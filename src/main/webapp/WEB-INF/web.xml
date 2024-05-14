@@ -4,12 +4,5 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>AddProductServlet</servlet-name>
-    <servlet-class>com.ovspms.servelet.AddProductServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddProductServlet</servlet-name>
-    <url-pattern>/AddProductServlet</url-pattern>
-  </servlet-mapping>
+ 
 </web-app>

@@ -1,15 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: thushan
-  Date: 5/14/24
-  Time: 9:14 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.ovspms.model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Product</title>
+    <title>Edit Product</title>
     <style>
         body {
             font-family: Arial, sans-serif; /* Set font */
@@ -81,11 +75,11 @@
             if (price === "") {
                 document.getElementById("priceError").innerText = "Price is required";
                 isValid = false;
+            }else if (parseFloat(price) < 0) {
+                document.getElementById("priceError").innerText = "Price must be a positive number";
+                isValid = false;
             } else if (isNaN(parseFloat(price))) {
                 document.getElementById("priceError").innerText = "Price must be a valid number";
-                isValid = false;
-            }else if(parseFloat(price) <= 0){
-                document.getElementById("priceError").innerText = "Price must be a positive number";
                 isValid = false;
             } else {
                 document.getElementById("priceError").innerText = "";
@@ -97,26 +91,26 @@
 </head>
 <body>
 <div class="container">
-    <h2>Add Product</h2>
-    <form action="<%=request.getContextPath()%>/AddProductServlet" method="post" onsubmit="return validateForm()">
+    <h2>Edit Product</h2>
+    <form action="<%=request.getContextPath()%>/UpdateProductServlet" method="post" onsubmit="return validateForm()">
+        <input type="hidden" name="id" value="<%= ((Product) request.getAttribute("product")).getId() %>">
         <div class="form-group">
             <label for="productName">Product Name:</label>
-            <input type="text" id="productName" name="productName" >
+            <input type="text" id="productName" name="productName" value="<%= ((Product) request.getAttribute("product")).getProductName() %>" >
             <span class="error-message" id="productNameError"></span>
         </div>
         <div class="form-group">
             <label for="model">Model:</label>
-            <input type="text" id="model" name="model" >
+            <input type="text" id="model" name="model" value="<%= ((Product) request.getAttribute("product")).getModel() %>" >
             <span class="error-message" id="modelError"></span>
         </div>
         <div class="form-group">
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" step="0.01" >
+            <input type="number" id="price" name="price" value="<%= ((Product) request.getAttribute("product")).getPrice() %>" step="0.01" >
             <span class="error-message" id="priceError"></span>
         </div>
-        <!-- Add more form fields here -->
         <div class="form-group">
-            <button type="submit">Add Product</button>
+            <button type="submit">Update Product</button>
         </div>
     </form>
 </div>
