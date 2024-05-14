@@ -37,5 +37,7 @@
     <a href="addProduct.jsp"><button class="button">Add Product</button></a>
     <a href="ViewProductServlet"><button class="button">View Product</button></a>
 </div>
+<div style="background-image: url('imgs/bg.jpg'); height: 900px; width: 100%; position: relative; top: 20px; left: 0; z-index: -1;">
+</div>
 </body>
 </html>
